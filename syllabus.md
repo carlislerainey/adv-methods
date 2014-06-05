@@ -1,12 +1,20 @@
 # PSC 631: Advanced Quantitative Methods
 
 ## Topics
-* Brief review of differential calculus
-* Key points of integral calculus
-* Detailed discussion of probability theory
-  * Basics of probability (notation, properties, Bayes' rules); MS ch. 9
-  * Discrete random variables, pmfs, cmfs, Bernoulli, binomial, Poisson, negative binomial, expectations, computer simulation
-  * Continuous random variables, pdfs, cdfs, joint distributions, uniform, normal, t, exponential, expectations and other moments
+* *calculus*: a brief review of differentiation and the key ideas of integration.
+* *matrix algebra*: matrices and their multiplication
+* *probability theory*: in detail
+  * basics: (notation, properties, Bayes' rules); MS ch. 9
+  * discrete random variables: pmfs, cmfs, Bernoulli, binomial, Poisson, negative binomial, expectations, computer simulation
+  * continuous random variables: pdfs, cdfs, joint distributions, uniform, normal, t, exponential, expectations and other moments
+* *principled estimation*: maximum likelihood, posterior distributions, Newton-Raphson, MCMC
+* *binary outcomes*: logistic regression, probit, random utility models, quantities of interest, simulation, non-linearity and interaction, heteroskedastic probit, separation
+* *unordered multinomial outcomes*: multinomial logit, multinomial probit, nested logit
+* *ordered multinomial outcomes*: ordered logit, ordered probit, heteroskedastic ordered probit
+* *count outcomes*: Poisson regression, negative binomial regression, hurdle models, zero-inflated models
+* *time-to-event*: exponential, weibull, log-logistic, nonparamatric approach, semi-parametric approaches, using logit or probit for discrete times
+* *truncated and/or censored outcomes*: tobit
+* *other stuff*: selection models, bivariate probit, bivariate probit with partial observability, bivariate probit with sample selection, a host of time series topics, random effect models, generalized additive models, random forests
 
 ## Grading
 
