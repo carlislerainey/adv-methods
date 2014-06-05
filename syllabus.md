@@ -8,7 +8,7 @@
   * discrete random variables: pmfs, cmfs, Bernoulli, binomial, Poisson, negative binomial, expectations, computer simulation
   * continuous random variables: pdfs, cdfs, joint distributions, uniform, normal, t, exponential, expectations and other moments
 * *principled estimation*: maximum likelihood, posterior distributions, Newton-Raphson, MCMC
-* *binary outcomes*: logistic regression, probit, random utility models, quantities of interest, simulation, non-linearity and interaction, heteroskedastic probit, separation
+* *binary outcomes*: logistic regression, probit, random utility models, quantities of interest, simulation, non-linearity and interaction, small samples and rare events, separation, heteroskedastic probit
 * *unordered multinomial outcomes*: multinomial logit, multinomial probit, nested logit
 * *ordered multinomial outcomes*: ordered logit, ordered probit, heteroskedastic ordered probit
 * *count outcomes*: Poisson regression, negative binomial regression, hurdle models, zero-inflated models
