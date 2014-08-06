@@ -1,4 +1,15 @@
+---
+output: html_document
+---
 
+```{r global_options, include=TRUE}
+library(knitr)
+wd <- normalizePath("../../")
+wd
+opts_knit$set(fig.width=5, fig.height=5, fig.path='fig/',
+               echo=FALSE, warning=FALSE, message=FALSE,
+               root.dir=wd)
+```
 
 Logistic Regression
 ========================================================
@@ -17,12 +28,13 @@ Alternatively, we might write the model as
 
 $\text{Pr}(y_i = 1 | X_i) = \text{logit}^{-1}(X_i\beta)$.
 
-Sometimes the conditioning notation is suppressed and the "= 1" bit is often assumed, so that we have
+Sometimes the conditioning notation is suppressed and the "$= 1$" bit is often assumed, so that we have
 
 $\text{Pr}(y_i) = \text{logit}^{-1}(X_i\beta)$.
 
 
 To get a feel for the model, let's simulate some data. In this case, we'll simulate `n = 100` observations and have one variable called `x1`.
+
 ```{r}
 n <- 100
 beta <- c(-1, 2)
@@ -33,8 +45,18 @@ y <- rbinom(n, 1, pi)
 ```
 
 Now let's plot the data and the true probability of success.
-```{r plot-simulated-data, fig.width=7, fig.height=6}
+
+```{r plot-simulated-data}
 plot(x1, y)
 curve(plogis(beta[1] + beta[2]*x), add = TRUE, lwd = 3, col = "red")
 ```
 
+## Example 1: O-rings and Temperature
+
+In the `data` directory, you'll find the data set `challenger.csv`. Let's load the data and see what we have. (Make sure you've set the working directory to the course folder using something like `setwd("~/Dropbox/classes/adv-methods")`.)
+
+```{r}
+getwd()
+d <- read.csv("data/challenger.csv")
+head(d)
+```
