@@ -63,18 +63,32 @@ Our goal with these readings is to get a solid feel for concepts like "random va
 
 * Simulate from lot's of different distributions in R and look at lots of scatterplots
 *Compute the probability of specific, compound events (e.g., dice, coins, cards)
+
 ## Week 3: Maximum Likelihood Estimation
+
+This week is probably the most important in the whole semester. There are two extremely general concepts we'll discuss this semester: maximum likelihood and simulation. These two ideas are extremely powerful and even more so when used together. It is crucial that you understand the key ideas of maximum likelihood estimation. I've given one medium-length reading this week. Please read it carefully.
 
 * King, Gary. 2001. *Unifying Political Methodology: The Likelihood Theory of Statistical Inference.* University of Michigan Press. Chapters 1-4.
 
 ### In Class
 
+* Derive a likelihood function for a simple binomial model. Program this function in R. Produce some fake data (perhaps with dice). Plug in several values to find the one that produces the highest likelihood (i.e., a brute force search). Confirm answer using a plot of the likelihood function. Confirm answer using derivatives.
+* Repeat for an exponential distribution.
 * Think about how we might go about climbing a hill using a computer algorithm. Perhaps we can actually implement something workable? 
+* Introduce and demonstrate the `optim()` function in R.
 
-## Binary Outcomes
+## Week 4: Binary Outcomes
+
+### The Usual Logit or Probit
 
 * Long, J. Scott. 1997. *Regression Models for Categorical and Limited Dependent Variables.* Sage Publications. Chapter 3.
+
+### More Specialized Forms
+
 * Nagler, Jonathan. 1994. "Scobit: An Alternative Estimator to Logit and Probit." *American Journal of Political Science* 38: 230-255.
-* King, Gary & Langche Zeng. 2001. "Logistic Regression in Rare Events Data." *Political Analysis* 12: 137-163.
+* King, Gary and Langche Zeng. 2001. "Logistic Regression in Rare Events Data." *Political Analysis* 12: 137-163.
 * Zorn, Christopher. 2005. "A Solution to Separation in Binary Response Models." *Political Analysis* 13: 157-170.
+
+## Week 5: Simulation
+
 * King, Gary, Michael Tomz, and Jason Wittenberg. 2000. "Making the Most of Statistical Analyses:Improving Interpretation and Presentation." *American Journal of Political Science* 44: 341-355.
