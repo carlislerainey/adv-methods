@@ -1,11 +1,25 @@
 # Schedule
 
-## Week 1: Replication, Version-Control, LaTeX, Markdown, Git, R.
+Some readings are available free on the web; I've linked to those. Other readings are not available freely on the web; I've tried to remove as many of those as possible. Those readings that are not freely available on the web can be found in our Dropbox folder with the convention `LastnameYear.pdf`.
 
-* Bowers, Jake. [Six Steps to a Better Relationship with Your Future Self.](http://polmeth.wustl.edu/methodologist/tpm_v18_n2.pdf)
+## Week 1: Replication, Version-Control, LaTeX, Markdown, Git, R, Actually Doing Research.
+
+### Replication
+
 * King, Gary. 1995. "[Replication, Replication](http://gking.harvard.edu/files/gking/files/replication.pdf)." *PS: Political Science and Politics.* (If interested, see this issue of *PS* for comments from 19 authors and a response.)
 * King, Gary. 2006. "[Publication, Publication](http://gking.harvard.edu/files/gking/files/paperspub.pdf)." PS: Political Science and Politics 39: 119–125. 
+* "[How to Persuade Journals to Accept Your Replication Paper](http://politicalsciencereplication.wordpress.com/2013/09/11/guest-blog-how-to-persuade-journals-to-accept-your-replication-paper/)." A blog post by Mark Bell and Nicholas Miller.
 
+### Version-Control
+ 
+* Bowers, Jake. [Six Steps to a Better Relationship with Your Future Self.](http://polmeth.wustl.edu/methodologist/tpm_v18_n2.pdf)
+* Ram, Karthik. 2013. "[Git Can Facilitate Greater Reproducibility and Increased Transparency in Science](http://www.scfbm.org/content/pdf/1751-0473-8-7.pdf)." *Source Code for Biology and Medicine* 8:7.
+
+### Actual Research
+
+* "[My Paper's Journey Through the Review Process](https://pages.wustl.edu/nathanjensen/articles/6010)." A blog post by Nathan Jensen.
+* "[William Shockley on What Makes a Person Who Publishes a Lot of Papers](http://dynamicecology.wordpress.com/2014/01/23/william-shockley-on-what-makes-a-person-write-a-lot-of-papers-and-the-superstar-researcher-system/)." A blog post by Brian McGill.
+* 
 
 ## Maximum Likelihood Estimation
 
