@@ -20,17 +20,30 @@
 
 I ultimately care about each of you leaving the class with a fantastic paper that you can submit to a conference and perhaps a journal. However, I have set up the class to have graded assignments throughout the class that make sure you are building the skills necessary to write a fantastic research paper and critique others' work. You can expect problem sets that focus on statistical theory and mathematics, homework assignments that ask you to do computation in R, including some that ask you to use fake data, my data, and your own data. I design all the assignments so that you are building up the skill sets to write your papers. While I care deeply about applied analysis, there are some things that you simply need to know in order to do good research. Expect in-class quizzes that focus on these things. I will provide some guidance about what you can expect to appear on these quizzes.
 
-### Homework (20%)
+### Homework (10%)
 
-You should expect one homework assignment per week that will be graded as percent correct. The homework is assigned on Tuesday and due at the beginning of the next class. I expect you to get all the homework problems correct. You can talk to me, Austin, or classmates as needed, but you will learn the most if you put in effort on your own before seeking help. 
+You should expect one homework assignment per week that will be graded as percent correct. The homework is assigned on Wednesday and due at the beginning of the next class. I expect you to get all the homework problems correct. You can talk to me, Austin, or classmates as needed, but you will learn the most if you put in effort on your own before seeking help. 
 
 The point of the homework is not to make you do busy-work, but to give you the opportunity to engage with the material. I suggest you adopt the following strategy. Answer as many questions as you can by yourself. If you encounter difficulties, take the following steps. First, think hard about it--really hard--for at least thirty minutes. If you have time, sleep on it. If you still cannot figure it out, then ask a classmate or two. Share ideas with each other an try to get unstuck. If your group of two or three cannot complete the problem, come see me or Austin. (Note: I understand that many people work better in groups, but the approach of "you do half, I'll do half" or "I'll do this week's, you do next" is not appropriate. If I believe this is going on, you can expect the difficulty of the quizzes to increase.)
 
-Turn in your problem sets at the beginning of class on Tuesday. I will offer instructions on how submit your answers (i.e., typewritten, hand-written, or source code) for each assignment. Make sure that whatever you turn in is neat. If it is not done neatly, I will not grade it (by my order).
+Turn in your problem sets at the beginning of class on Wednesday. I'll offer instructions on how submit your answers (i.e., typewritten, hand-written, or source code) for each assignment. Make sure that whatever you turn in is neat. If it is not done neatly, I will not grade it.
 
-### In-Class Quizzes (20%) 
+|	Item     			|	Weight     |
+|----------------------------------|------|
+| Participation    				| 10% | 
+| Homework	 Average   		| 10% | 
+| In-Class Quiz Average    	| 10% | 
+| Midterm Exam  			| 20% | 
+| Final Exam 				| 20% |
+| Research Paper    			| 30% | 
+
+### In-Class Quizzes (10%) 
 
 While I care deeply about applied statistics (as opposed to the abstract, theoretical stuff), there are some things that you must know to do good applied work. As such, I'll give you a list of five possible questions for each class that will come from recent readings, lectures, or class discussions. We'll randomly choose one to answer at the beginning of each class.
+
+### Exams (20% + 20% = 40%)
+
+We're going to have two exams this semester. The midterm will probably be a 75 minute in-class exam and the final exam will probably be during finals week, though I'm open to suggestions on this. The point is to force us to stop and collect our thoughts once during and again at the end of the semester. The exam questions will come directly from the potential quiz questions. 
 
 ### Participation (10%)
 
@@ -40,7 +53,7 @@ To facilitate this, I highly recommend having a notebook, Word document, Evernot
 
 I didn't do a good job enforcing this last semester. I'm going to do better this semester.
 
-### Research (Replication) Paper (50%)
+### Research (Replication) Paper (30%)
 
 The most important thing we do in this class is a replication paper. I'll consider a wide range of ideas about what your paper will look like. This will be a solo-authored paper. I expect this paper to be high-quality (think about it being ready for a conference at the very worst). Near the end of the semester, you will turn in to me the following:
 
