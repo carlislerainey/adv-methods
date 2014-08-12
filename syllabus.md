@@ -1,21 +1,22 @@
 # PSC 631: Advanced Quantitative Methods
 
-## Topics
-* *calculus*: a brief review of differentiation and the key ideas of integration.
-* *matrix algebra*: matrices and their multiplication
-* *probability theory*: in detail
-  * basics: (notation, properties, Bayes' rules); MS ch. 9
-  * discrete random variables: pmfs, cmfs, Bernoulli, binomial, Poisson, negative binomial, expectations, computer simulation
-  * continuous random variables: pdfs, cdfs, joint distributions, uniform, normal, t, exponential, expectations and other moments
-* *principled estimation*: maximum likelihood, posterior distributions, Newton-Raphson, MCMC
-* *binary outcomes*: logistic regression, probit, random utility models, quantities of interest, simulation, non-linearity and interaction, small samples and rare events, separation, heteroskedastic probit
-* *unordered multinomial outcomes*: multinomial logit, multinomial probit, nested logit, alternative specific v. case specific covariates
-* *ordered multinomial outcomes*: ordered logit, ordered probit, heteroskedastic ordered probit, many other twists on ordered probit
-* *count outcomes*: Poisson regression, negative binomial regression, hurdle models, zero-inflated models
-* *time-to-event*: exponential, weibull, log-logistic, nonparamatric approach, semi-parametric approaches, using logit or probit for discrete times
-* *truncated and/or censored outcomes*: tobit
-* *related topics*: selection models, bivariate probit, bivariate probit with partial observability, bivariate probit with sample selection, a host of time series topics, random effect models, generalized additive models
-* *less related topics*: random forests, Rubin causal model, matching, other stuff as needed
+## Description
+
+Our goal main goal this semester is to extend the linear model in several ways and write papers about applications of those models. The class of models we'll focus on are sometimes referred to as "maximum likelihood models," but I usually call them "generalized linear models." The key motivation is to adapt from continuous-ish outcomes to binary, categorical, count, time-to-event, and other outcomes. As needed, we can focus on other topics. I also care a lot about computation, so we'll do a lot of programming 
+
+## Prerequisites
+
+You should definitely feel quite comfortable with the material from PSC 531. We'll be moving *much* faster this semester. In 531, we spent one semester on a single model. We'll cover dozens in this class.
+
+## Textbooks
+
+There is no assigned textbook for the class. Instead, we'll draw as needed from several books and I'll place any readings not available on the web in our Dropbox folder.
+
+In case you like to have an actual textbook, here are some good ones.
+
+* Long, J. Scott. 1997. *Regression Models for Categorial and Limited Dependent Variables.*
+* Farraway, Julian J. 2006. *Extending the Linear Model with R.*
+* Fox, John. 2008. *Applied Regression Analysis and Generalized Linear Models.*
 
 ## Grading
 
@@ -92,3 +93,20 @@ Excused absences include documented illness, deaths in the family and other docu
 The UB Academic Integrity Policy outlines the University's expectations for the integrity of students' academic work, the procedures for resolving alleged violations of those expectations, and the rights and responsibilities of students and faculty members throughout the process. Students are responsible for reading and adhering to the [Undergraduate Academic Integrity Policy](http://undergrad-catalog.buffalo.edu/policies/course/integrity.shtml).
 
 I expect you to fulfill assignments honestly and honorably. Plagiarism and cheating are serious forms of academic misconduct. Examples of each are given in the Integrity Policy mentioned above. If I detect cheating or plagiarism on any course assignment, I reduce your grade on the assignment or course, and may assign an F in the course. First, I inform you (preferably in writing) as soon as possible after the incident. Then I discuss the matter with you, and put any agreement regarding academic penalty in writing signed by both of us. Finally, I report the infraction to the Chair and the Vice Provost of Undergraduate Education. If no agreement can be reached, I simply make a recommendation as describing the the Integrity policy mentioned above.
+
+## Topics
+* *calculus*: a brief review of differentiation and the key ideas of integration.
+* *matrix algebra*: matrices and their multiplication
+* *probability theory*: in detail
+  * basics: (notation, properties, Bayes' rules); MS ch. 9
+  * discrete random variables: pmfs, cmfs, Bernoulli, binomial, Poisson, negative binomial, expectations, computer simulation
+  * continuous random variables: pdfs, cdfs, joint distributions, uniform, normal, t, exponential, expectations and other moments
+* *principled estimation*: maximum likelihood, posterior distributions, Newton-Raphson, MCMC
+* *binary outcomes*: logistic regression, probit, random utility models, quantities of interest, simulation, non-linearity and interaction, small samples and rare events, separation, heteroskedastic probit
+* *unordered multinomial outcomes*: multinomial logit, multinomial probit, nested logit, alternative specific v. case specific covariates
+* *ordered multinomial outcomes*: ordered logit, ordered probit, heteroskedastic ordered probit, many other twists on ordered probit
+* *count outcomes*: Poisson regression, negative binomial regression, hurdle models, zero-inflated models
+* *time-to-event*: exponential, weibull, log-logistic, nonparamatric approach, semi-parametric approaches, using logit or probit for discrete times
+* *truncated and/or censored outcomes*: tobit
+* *related topics*: selection models, bivariate probit, bivariate probit with partial observability, bivariate probit with sample selection, a host of time series topics, random effect models, generalized additive models
+* *less related topics*: random forests, Rubin causal model, matching, other stuff as needed
