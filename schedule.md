@@ -2,7 +2,7 @@
 
 Some readings are available free on the web; I've linked to those. Other readings are not available freely on the web; I've tried to remove as many of those as possible. Those readings that are not freely available on the web can be found in our Dropbox folder with the convention `LastnameYear.pdf`.
 
-## Week 1: Research in Practice
+## Aug. 27: Research in Practice
 
 ### Replication
 
@@ -24,7 +24,9 @@ Some readings are available free on the web; I've linked to those. Other reading
 
 We'll talk about these in class, so be sure to bring your computer and make sure that you have LaTeX, git, R, and RStudio installed. You can easily find the guides you need for your operating system with a quick Google search.
 
-## Week 2: Mathematical Foundations
+## Sept. 2: Mathematical Foundations
+
+Do Homework 1.
 
 In general, you can review any mathematical concepts  you'll need using [Dave Siegel's videos](http://people.duke.edu/~das76/Mathematics%20for%20Political%20and%20Social%20Research%20Syllabus_Siegel.pdf). Use them as needed.
 
@@ -64,11 +66,13 @@ Our goal with these readings is to get a solid feel for concepts like "random va
 * Simulate from lot's of different distributions in R and look at lots of scatterplots
 *Compute the probability of specific, compound events (e.g., dice, coins, cards)
 
-## Week 3: Maximum Likelihood Estimation
+## Sept. 9: Maximum Likelihood Estimation
+
+Do Homework 2.
 
 This week is probably the most important in the whole semester. There are two extremely general concepts we'll discuss this semester: maximum likelihood and simulation. These two ideas are extremely powerful and even more so when used together. It is crucial that you understand the key ideas of maximum likelihood estimation. I've given one medium-length reading this week. Please read it carefully.
 
-* King, Gary. 2001. *Unifying Political Methodology: The Likelihood Theory of Statistical Inference.* University of Michigan Press. Chapters 1-4.
+* King, Gary. 2001. *Unifying Political Methodology: The Likelihood Theory of Statistical Inference.* University of Michigan Press. Chapters 1-4. [Dropbox]
 
 ### In Class
 
@@ -77,18 +81,30 @@ This week is probably the most important in the whole semester. There are two ex
 * Think about how we might go about climbing a hill using a computer algorithm. Perhaps we can actually implement something workable? 
 * Introduce and demonstrate the `optim()` function in R.
 
-## Week 4: Binary Outcomes
+## Sept 16: Binary Outcomes
 
-### The Usual Logit or Probit
+Do Homework 3.
 
-* Long, J. Scott. 1997. *Regression Models for Categorical and Limited Dependent Variables.* Sage Publications. Chapter 3.
+**The Usual Logit or Probit**
 
-### More Specialized Forms
+* Long, J. Scott. 1997. *Regression Models for Categorical and Limited Dependent Variables.* Sage Publications. Chapter 3. [Dropbox]
 
-* Nagler, Jonathan. 1994. "Scobit: An Alternative Estimator to Logit and Probit." *American Journal of Political Science* 38: 230-255.
-* King, Gary and Langche Zeng. 2001. "Logistic Regression in Rare Events Data." *Political Analysis* 12: 137-163.
-* Zorn, Christopher. 2005. "A Solution to Separation in Binary Response Models." *Political Analysis* 13: 157-170.
+**More Specialized Forms**
 
-## Week 5: Simulation
+* Nagler, Jonathan. 1994. "[Scobit: An Alternative Estimator to Logit and Probit](http://www.nyu.edu/classes/nbeck/q2/nagler.scobit.pdf)." *American Journal of Political Science* 38: 230-255.
+* King, Gary and Langche Zeng. 2001. "[Logistic Regression in Rare Events Data](http://gking.harvard.edu/files/0s.pdf)." *Political Analysis* 12: 137-163.
+* Zorn, Christopher. 2005. "A Solution to Separation in Binary Response Models." *Political Analysis* 13: 157-170. [Gated](http://pan.oxfordjournals.org/content/13/2/157.full.pdf+html)
+
+## Week 5: Quantities of Interest, Simulation, and Interaction
+
+This is the second most important week of the whole semester.
+
+**Quantities of Interest and Simulation**
 
 * King, Gary, Michael Tomz, and Jason Wittenberg. 2000. "Making the Most of Statistical Analyses:Improving Interpretation and Presentation." *American Journal of Political Science* 44: 341-355.
+
+**Logit Models and Interaction Terms**
+
+* Nagler, Jonathan. 1991. "The Effect of Registration Laws and Education on U.S. Voter Turnout." *American Political Science Review* 85:1393-1405. [Gated](http://www.jstor.org/stable/1963952)
+* Berry, William, Jacqueline H. R. DeMeritt, and Justin Esarey. 2010. "[Testing for Interaction in Binary Logit and Probit Models: Is a Product Term Essential?](http://mailer.fsu.edu/~wberry/garnet-wberry/berry%20ajps%20jan%202010.pdf)" *American Journal of Political Science* 54:248-266.
+* Rainey, Carlisle. "[Compression and Conditional Effects](http://www.carlislerainey.com/files/compress.pdf)." Working paper.
