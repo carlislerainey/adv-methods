@@ -1,12 +1,15 @@
 # Homework 1
 
+
 ## Foundational Tools
 
 * Choose how you are going to version-control your files. I use Dropbox to sync my files across my iMac, MacBook, iPad, and iPhone and Git to version control everything. You need to have a strategy in place before you start the project. [This](http://academia.stackexchange.com/questions/5277/why-use-version-control-systems-for-writing-a-paper) stack-exchange answer might be helpful.
 * Start to think about what paper you want to replicate. Try to have one or two picked out by the beginning of the next class so that we can begin to discuss them. The simpler the methods, the better. However, you need to use something beyond a linear-model for this class.
-* If you want to participate in the daily writing group, 
+* If you want to participate in the daily writing group, come and see me.
 
 ## Math
+
+Do this section by hand, but neatly. If it is not neat, I'll ask you to redo. You'll get one warning.
 
 In general, you can review any mathematical concepts  you'll need using [Dave Siegel's videos](http://people.duke.edu/~das76/Mathematics%20for%20Political%20and%20Social%20Research%20Syllabus_Siegel.pdf). Use them as needed.
 
@@ -28,6 +31,8 @@ We'll spend a little time on the math in class, but I hope to devote most of the
 
 ### Probability Theory
 
+Write an R-markdown document that does this. Turn it into a pdf and print it out.
+
 Our goal with these readings is to get a solid feel for concepts like "random variable" and "distribution." We'll want to connect the mathematical distribution function with the observed distributions (e.g., histogram) that we see in observed variables.
 
 * Read Fox's *Primer* (2009), section 3.1. This is fairly dense material, but quite important. Take your time with it.
@@ -41,15 +46,18 @@ Our goal with these readings is to get a solid feel for concepts like "random va
 	4. Figure out how to simulate from your distribution in R (usually something like`rdist()`, such as `rnorm()`) and use the density function to plot the distribution (usually something like `ddist()`, such as `dnorm()`).
 * Read Fox's *Primer* (2009), section 3.3.5. Think really hard about the difference between scalar random variables and vector random variables. Now think really hard about the difference between *k* scalar random variables and a vector random variable of length *k*. Is there any difference? If so, what is it?
 
-## For the Quiz
+## Quiz Questions
 
-* Work with logarithms
-* Understand matrix dimensions and be able to add and multiply them.
-* Differentiation (especially chain rule, product rule, and quotient rule)
-* Integration
-* Compute probabilities from pdfs and pmfs.
+* Algebraically manipulate *log f(x)* into an equation involving the fewest possible products and powers, where *f(x)* has lots of products and powers.
+* For given matrices A and B, find AB, BA, A + B, and A - B (if it exists)
+* For a given *f* and *g*, find the derivative of *f(x)*, *g(x)*, *f(g(x))*, *f(x)g(x)*, and *f(x)/g(x)*, where *f* and *g* might be an exponential, logarithm, polynomial, or some combination. Illustrate graphically.
+* Find the integral (definite and indefinite) for the *f(x)* and *g(x)* above. Illustrate graphically.
 
-## In Class
+## Class Agenda
 
-* Simulate from lot's of different distributions in R and look at lots of scatterplots
-* Compute the probability of specific, compound events (e.g., dice, coins, cards)
+* Homework 1 due. There is a handwritten part with lots of math problems and a printed part that has computer code, output, and some discussion.
+* Quiz 1. I'll choose a few representative questions from above. This should take about 15 minutes.
+* Discuss the replication projects.
+* Simulate from lots of different distributions in R and look at lots of histograms. We'll do this by having students show us their version of the probability theory homework.
+* Compute the probability of specific, compound events (e.g., dice, coins, cards).
+* Discuss how to compute the probability of events from pdfs and pmfs.
