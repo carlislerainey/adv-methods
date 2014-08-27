@@ -70,6 +70,9 @@ When reading DeGroot, note that he calls a cdf a "distribution function" and a p
 * For given matrices A and B, find AB, BA, A + B, and A - B (if it exists)
 * For a given *f* and *g*, find the derivative of *f(x)*, *g(x)*, *f(g(x))*, *f(x)g(x)*, and *f(x)/g(x)*, where *f* and *g* might be an exponential, logarithm, polynomial, or some combination. Illustrate graphically.
 * Find the integral (definite and indefinite) for the *f(x)* and *g(x)* above. Illustrate graphically.
+* Prove a simple claim using the basic definitions of probability, independence, and condition probability.
+* Given *Pr(A)*, *Pr(B)*, and *Pr(B|A)*, find *Pr(A|B)*.
+* For a given (simple) pmf, pdf, or cdc, find the probability of an event.
 
 ## Class Agenda
 
