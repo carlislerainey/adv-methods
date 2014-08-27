@@ -35,9 +35,27 @@ Write an R-markdown document that does this. Turn it into a pdf and print it out
 
 Our goal with these readings is to get a solid feel for concepts like "random variable" and "distribution." We'll want to connect the mathematical distribution function with the observed distributions (e.g., histogram) that we see in observed variables.
 
-* Read Fox's *Primer* (2009), section 3.1. This is fairly dense material, but quite important. Take your time with it.
-* **Do** simulate from some of these random variables. Choose at least one discrete and one continuous random variable and print, say 10, random draws to get a feel for what the numbers look like. Then tabulate, say 1,000, draws to get a sense for what the distribution looks like. Then plot the distribution (bar plot for discrete, histogram for continuous). 
+#### The Key Concepts
+
+When reading DeGroot, note that he calls a cdf a "distribution function" and a pmf a "probability function." 
+
+* Read DeGroot's *Probability and Statistics*, sections 1.1-1.5.
+* **Do** exercises 1-3, section 1.5.
+* Read DeGroot's *Probability and Statistics*, sections 1.10-1.11.
+* **Do** exercise 1, section 1.10.
+* **Do** exercise 1, section 1.11. This one is tricky. Just give it your best effort. I used facts from section 1.10 to do it, but there are probably other ways.
+* Read DeGroot's *Probability and Statistics*, sections 2.1-2.2
+* **Do** exercises 1-3, section 2.1. You should be able to just write down the answers to these if you understand the concepts.
+* **Do** exercises 1 and 2, section 2.2. These require a little bit of algebra.
+* Read DeGroot's *Probability and Statistics*, sections 3.1-3.3
+* **Do** exercise 1, section 3.1. This require a little bit of algebra.
+* **Do** exercise 1, section 3.2. This require a little integral calculus.
+* **Do** exercises 1 and 2, section 3.3. This require a careful thought, but not much math.
+
+#### Actual Distributions
+
 * Read Fox's *Primer* (2009), sections 3.2.1, 3.2.3, 3.3.1, 3.3.6, 3.3.9.
+* **Do** simulate from some of these random variables. Choose at least one discrete and one continuous random variable and print, say 10, random draws to get a feel for what the numbers look like. Then tabulate, say 1,000, draws to get a sense for what the distribution looks like. Then plot the distribution (bar plot for discrete, histogram for continuous). 
 * **Do** graph some of these distribution functions in R. You should probably graph the discrete random variables as bar plots and the continuous random variables as line plots. Put several distributions on the same plot to get a sense of how the function changes as the parameters or family changes.
 * **Do** study two distributions not covered in the readings (let's choose among negative binomial, geometric, hypergeometric, beta-binomial, Cauchy, double exponential, logistic, Weibull, log-normal, Pareto, gamma, Chi-squared, Student's *t*, *F*, multinomial). Wikipedia is great for this. 
 	1. Make a note of the pmf/pdf.
