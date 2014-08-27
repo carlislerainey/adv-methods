@@ -31,8 +31,6 @@ We'll spend a little time on the math in class, but I hope to devote most of the
 
 ### Probability Theory
 
-Write an R-markdown document that does this. Turn it into a pdf and print it out.
-
 Our goal with these readings is to get a solid feel for concepts like "random variable" and "distribution." We'll want to connect the mathematical distribution function with the observed distributions (e.g., histogram) that we see in observed variables.
 
 #### The Key Concepts
@@ -53,6 +51,8 @@ When reading DeGroot, note that he calls a cdf a "distribution function" and a p
 * **Do** exercises 1 and 2, section 3.3. This require a careful thought, but not much math.
 
 #### Actual Distributions
+
+Write an R-markdown document that does this. Turn it into a pdf and print it out.
 
 * Read Fox's *Primer* (2009), sections 3.2.1, 3.2.3, 3.3.1, 3.3.6, 3.3.9.
 * **Do** use a computer to simulate from some of these random variables. Choose at least one discrete and one continuous random variable and print, say 10, random draws to get a feel for what the numbers look like. Then tabulate, say 1,000, draws to get a sense for what the distribution looks like. Then plot the distribution (bar plot for discrete, histogram for continuous). In R, you'll use `rnorm()`, `rgamma()`, etc.
@@ -78,7 +78,9 @@ When reading DeGroot, note that he calls a cdf a "distribution function" and a p
 
 * Homework 1 due. There is a handwritten part with lots of math problems and a printed part that has computer code, output, and some discussion.
 * Quiz 1. I'll choose a few representative questions from above. This should take about 15 minutes.
+* Go through a selection of quiz questions.
 * Discuss the replication projects.
 * Simulate from lots of different distributions in R and look at lots of histograms. We'll do this by having students show us their version of the probability theory homework.
 * Compute the probability of specific, compound events (e.g., dice, coins, cards).
 * Discuss how to compute the probability of events from pdfs and pmfs.
+* Lay the foundation for maximum likelihood estimation.
