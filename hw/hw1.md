@@ -22,7 +22,7 @@ We'll spend a little time on the math in class, but I hope to devote most of the
 ### Differentiation
 
 * Review Hagle's *Concepts* (1995), chapters 3 and 4. Make sure you know the power rule, the product rule, the quotient rule, and the chain rule. We didn't study each of these carefully in PSC 531, so review carefully. Pay especially close attention to the chain rule because it's tricky and important.
-* *From Hagel's *Problems* (1995), section 5.3, **do** 5a-b, 6a-c, 7a-b. 
+* From Hagel's *Problems* (1995), section 3.3, **do** 5a-b, 6a-c, 7a-b. 
 
 ### Integration
 
