@@ -9,14 +9,21 @@ This week is probably the most important in the whole semester. There are two ex
 
 * King, Gary. 2001. *Unifying Political Methodology: The Likelihood Theory of Statistical Inference.* University of Michigan Press. Chapters 1-4. [Dropbox]
 
+* Suppose that *X* follows an exponential distribution and you observe *y = [1.5, 0.6, 1.2]*.
+	* Derive the log-likelihood function.
+	* Solve the log-likelihood function analytically (i.e., with calculus).
+	* Use `optim()` in R to find the MLE.
+* Suppose that *X* follows a normal distribution and you observe *y = [1.5, 0.6, 1.2]*.
+	* Derive the log-likelihood function.
+	* Solve the log-likelihood function analytically (i.e., with calculus). Comment on how this solution compares to the usual estimate of the mean and variance using in introductory statistics.
+	* Use `optim()` in R to find the MLE.
+* Suppose that *X* follows a uniform distribution from 0 to *u* and you observe *y = [1.5, 0.6, 1.2]*. What is the maximum likelihood estimate of *u*. Explain your answer.
+
 ## Quiz Questions
 
-* Find the probability of *X* if *x* has distribution *p(x)*, where *X* is a specific event (or set of events) and *p(x)* is a pdf or pmf.
+* For a given probability model *X ~ f(x)*, derive the log-likelihood function and solve for the MLE.
 
 ### In Class
 
-* Derive a likelihood function for a simple binomial model. Program this function in R. Produce some fake data (perhaps with dice). Plug in several values to find the one that produces the highest likelihood (i.e., a brute force search). Confirm answer using a plot of the likelihood function. Confirm answer using derivatives.
-* Repeat for an exponential distribution.
-* Think about how we might go about climbing a hill using a computer algorithm. Perhaps we can actually implement something workable? 
-* Introduce and demonstrate the `optim()` function in R.
+* Extend MLE to probability models with covariates.
 
