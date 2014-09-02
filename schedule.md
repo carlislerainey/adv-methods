@@ -36,16 +36,17 @@ This is the second most important week of the whole semester.
 * Berry, William, Jacqueline H. R. DeMeritt, and Justin Esarey. 2010. "[Testing for Interaction in Binary Logit and Probit Models: Is a Product Term Essential?](http://mailer.fsu.edu/~wberry/garnet-wberry/berry%20ajps%20jan%202010.pdf)" *American Journal of Political Science* 54:248-266.
 * Rainey, Carlisle. "[Compression and Conditional Effects](http://www.carlislerainey.com/files/compress.pdf)." Working paper.
 
-## Oct. 1: Binary Outcomes, Part II
+## Oct. 1: Count Outcomes
+
+## Oct. 8: Binary Outcomes, Part II
 
 **More Specialized Forms of Logit and Probit**
 
 * Nagler, Jonathan. 1994. "[Scobit: An Alternative Estimator to Logit and Probit](http://www.nyu.edu/classes/nbeck/q2/nagler.scobit.pdf)." *American Journal of Political Science* 38: 230-255.
 * King, Gary and Langche Zeng. 2001. "[Logistic Regression in Rare Events Data](http://gking.harvard.edu/files/0s.pdf)." *Political Analysis* 12: 137-163.
 * Zorn, Christopher. 2005. "A Solution to Separation in Binary Response Models." *Political Analysis* 13: 157-170. [Gated](http://pan.oxfordjournals.org/content/13/2/157.full.pdf+html)
-* Some reading on partial observability models.
-
-## Oct. 8: Count Outcomes
+* Partial observability models.
+* Heteroskedastic Probit.
 
 ## Oct. 15: Ordinal Outcomes
 
