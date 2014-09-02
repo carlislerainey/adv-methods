@@ -72,7 +72,7 @@ Write an R-markdown document that does this. Turn it into a pdf and print it out
 * Find the integral (definite and indefinite) for the *f(x)* and *g(x)* above. Illustrate graphically.
 * Prove a simple claim using the basic definitions of probability, independence, and condition probability.
 * Given *Pr(A)*, *Pr(B)*, and *Pr(B|A)*, find *Pr(A|B)*.
-* For a given (simple) pmf, pdf, or cdc, find the probability of an event.
+* For a given (simple) pmf, pdf, or cdf, find the probability of an event.
 
 ## Class Agenda
 
@@ -80,6 +80,7 @@ Write an R-markdown document that does this. Turn it into a pdf and print it out
 * Quiz 1. I'll choose a few representative questions from above. This should take about 15 minutes.
 * Go through a selection of quiz questions.
 * Discuss the replication projects.
+* Choose models to lead.
 * Simulate from lots of different distributions in R and look at lots of histograms. We'll do this by having students show us their version of the probability theory homework.
 * Compute the probability of specific, compound events (e.g., dice, coins, cards).
 * Discuss how to compute the probability of events from pdfs and pmfs.
