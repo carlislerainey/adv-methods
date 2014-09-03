@@ -13,10 +13,12 @@ This week is probably the most important in the whole semester. There are two ex
 	* Derive the log-likelihood function.
 	* Solve the log-likelihood function analytically (i.e., with calculus).
 	* Use `optim()` in R to find the MLE.
+	* Now simulate *y* from a exponential distribution with a sample size and parameter that you choose and use `optim()` to find the MLE. Does the MLE seem reasonable given your choice?
 * Suppose that *X* follows a normal distribution and you observe *y = [1.5, 0.6, 1.2]*.
 	* Derive the log-likelihood function.
 	* Solve the log-likelihood function analytically (i.e., with calculus). Comment on how this solution compares to the usual estimate of the mean and variance using in introductory statistics.
 	* Use `optim()` in R to find the MLE.
+	* Now simulate *y* from a normal distribution with a sample size, mean, and variance that you choose and use `optim()` to find the MLE. Does the MLE seem reasonable given your choice?
 * Suppose that *X* follows a uniform distribution from 0 to *u* and you observe *y = [1.5, 0.6, 1.2]*. What is the maximum likelihood estimate of *u*. Explain your answer.
 
 ## Quiz Questions
