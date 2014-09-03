@@ -83,5 +83,4 @@ Write an R-markdown document that does this. Turn it into a pdf and print it out
 * Choose models to lead.
 * Simulate from lots of different distributions in R and look at lots of histograms. We'll do this by having students show us their version of the probability theory homework.
 * Compute the probability of specific, compound events (e.g., dice, coins, cards).
-* Discuss how to compute the probability of events from pdfs and pmfs.
 * Lay the foundation for maximum likelihood estimation.
