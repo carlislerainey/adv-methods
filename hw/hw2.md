@@ -9,24 +9,23 @@ This week is probably the most important in the whole semester. There are two ex
 
 * King, Gary. 2001. *Unifying Political Methodology: The Likelihood Theory of Statistical Inference.* University of Michigan Press. Chapters 1-4. [Dropbox]
 
-* Suppose that *X* follows an exponential distribution and you observe *y = [1.5, 0.6, 1.2]*.
+* Suppose that you flip a (possibly biased) coin *n* times and observe *y* heads. Find the maximum likelihood estimate of *p = Pr(Head)*.
 	* Derive the log-likelihood function.
 	* Solve the log-likelihood function analytically (i.e., with calculus).
-	* Use `optim()` in R to find the MLE.
-	* Now simulate *y* from a exponential distribution with a sample size and parameter that you choose and use `optim()` to find the MLE. Does the MLE seem reasonable given your choice?
-* Suppose that *X* follows a normal distribution and you observe *y = [1.5, 0.6, 1.2]*.
-	* Derive the log-likelihood function.
-	* Solve the log-likelihood function analytically (i.e., with calculus). Comment on how this solution compares to the usual estimate of the mean and variance using in introductory statistics.
-	* Use `optim()` in R to find the MLE.
-	* Now simulate *y* from a normal distribution with a sample size, mean, and variance that you choose and use `optim()` to find the MLE. Does the MLE seem reasonable given your choice?
-* Suppose that *X* follows a uniform distribution from 0 to *u* and you observe *y = [1.5, 0.6, 1.2]*. What is the maximum likelihood estimate of *u*. Explain your answer.
+	* What is the maximum likelihood estimate of *p*?
+* Suppose that take a single draw from a normal distribution with unknown mean *u* and known variance 1. You obtain *y = 1.2*.
+	* Derive the log-likelihood function for this single observation.
+	* Solve the log-likelihood function analytically (i.e., with calculus).
+	* What is the maximum likelihood estimate of *u*?
 
 ## Quiz Questions
 
-* For a given probability model *X ~ f(x)*, derive the log-likelihood function and solve for the MLE.
+* For a given probability model *Y ~ binomial(n, y, p)*, derive the log-likelihood function and solve for the MLE.
 
 ### In Class
 
+* MLE with multiple observations. 
+* Hill-climbing algorithms.
 * Extend MLE to probability models with covariates.
-* Derive estimates for MLE of normal-linear model. 
+* Derive estimates for the MLE of normal-linear model. 
 
