@@ -5,7 +5,7 @@ Due Wednesday, September 10.
 
 ## Maximum Likelihood Estimation
 
-This week is probably the most important in the whole semester. There are two extremely general concepts we'll discuss this semester: maximum likelihood and simulation. These two ideas are extremely powerful and even more so when used together. It is crucial that you understand the key ideas of maximum likelihood estimation. I've given one medium-length reading this week. Please read it carefully.
+This week is probably the most important in the whole semester. There are two extremely general concepts we'll discuss this semester: maximum likelihood and simulation. These two ideas are extremely powerful and even more so when used together. It is crucial that you understand the key ideas of maximum likelihood estimation, which is what we'll be studying this week. I've given one medium-length reading this week. Please read it **carefully**.
 
 * King, Gary. 2001. *Unifying Political Methodology: The Likelihood Theory of Statistical Inference.* University of Michigan Press. Chapters 1-4. [Dropbox]
 
@@ -26,4 +26,5 @@ This week is probably the most important in the whole semester. There are two ex
 ### In Class
 
 * Extend MLE to probability models with covariates.
+* Derive estimates for MLE of normal-linear model. 
 
