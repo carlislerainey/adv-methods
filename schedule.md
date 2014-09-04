@@ -38,6 +38,8 @@ This is the second most important week of the whole semester.
 
 ## Oct. 1: Count Outcomes
 
+Kelly
+
 ## Oct. 8: Binary Outcomes, Part II
 
 **More Specialized Forms of Logit and Probit**
@@ -50,9 +52,13 @@ This is the second most important week of the whole semester.
 
 ## Oct. 15: Ordinal Outcomes
 
+Austin
+
 ## Oct. 22: Polytomous Outcomes
 
 ## Oct. 29: Time-to-Event (Non-negative) Outcomes
+
+Yohan
 
 ## Nov. 5: Grab-bag (selection, truncation, gams)
 
