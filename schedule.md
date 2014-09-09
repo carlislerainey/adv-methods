@@ -48,7 +48,8 @@ Kelly
 * King, Gary and Langche Zeng. 2001. "[Logistic Regression in Rare Events Data](http://gking.harvard.edu/files/0s.pdf)." *Political Analysis* 12: 137-163.
 * Zorn, Christopher. 2005. "A Solution to Separation in Binary Response Models." *Political Analysis* 13: 157-170. [Gated](http://pan.oxfordjournals.org/content/13/2/157.full.pdf+html)
 * Partial observability models.
-* Heteroskedastic Probit.
+* Heteroskedastic probit.
+* Dynamic probit.
 
 ## Oct. 15: Ordinal Outcomes
 
