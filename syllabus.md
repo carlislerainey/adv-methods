@@ -1,5 +1,13 @@
 # PSC 631: Advanced Quantitative Methods
 
+## Course Information
+
+Course Number: PSC 631  
+Meeting: Wednesday, 2:00-4:50, in Park 502  
+e-mail: rcrainey@buffalo.edu  
+Office: Park 418  
+Office Hours: Monday, 1:00-2:00  
+
 ## Description
 
 Our goal main goal this semester is to extend the linear model in several ways and write papers about applications of those models. The class of models we'll focus on are sometimes referred to as "maximum likelihood models," but I usually call them "generalized linear models." The key motivation is to adapt from continuous-ish outcomes to binary, categorical, count, time-to-event, and other outcomes. As needed, we can focus on other topics. I also care a lot about computation, so we'll do a lot of programming 
@@ -98,11 +106,11 @@ I expect you to fulfill assignments honestly and honorably. Plagiarism and cheat
 * *calculus*: a brief review of differentiation and the key ideas of integration.
 * *matrix algebra*: matrices and their multiplication
 * *probability theory*: in detail
-  * basics: (notation, properties, Bayes' rules); MS ch. 9
+  * basics: (notation, properties, Bayes' rules)
   * discrete random variables: pmfs, cmfs, Bernoulli, binomial, Poisson, negative binomial, expectations, computer simulation
   * continuous random variables: pdfs, cdfs, joint distributions, uniform, normal, t, exponential, expectations and other moments
 * *principled estimation*: maximum likelihood, posterior distributions, Newton-Raphson, MCMC
-* *binary outcomes*: logistic regression, probit, random utility models, quantities of interest, simulation, non-linearity and interaction, small samples and rare events, separation, heteroskedastic probit
+* *binary outcomes*: logistic regression, probit, random utility models, quantities of interest, simulation, non-linearity and interaction, small samples and rare events, separation, heteroskedastic probit, dynamic probit, partial observability
 * *unordered multinomial outcomes*: multinomial logit, multinomial probit, nested logit, alternative specific v. case specific covariates
 * *ordered multinomial outcomes*: ordered logit, ordered probit, heteroskedastic ordered probit, many other twists on ordered probit
 * *count outcomes*: Poisson regression, negative binomial regression, hurdle models, zero-inflated models

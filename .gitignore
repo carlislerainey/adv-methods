@@ -16,6 +16,7 @@
 *.nav
 *.snm
 *.vrb
+*.html
 !.gitignore
 
 *.pdf
