@@ -1,3 +1,4 @@
+
 *~
 .*
 *.DS_Store
@@ -15,6 +16,8 @@
 *.nav
 *.snm
 *.vrb
-*.pdf
 !.gitignore
-!*/figs
+
+*.pdf
+!**/figs/*.pdf
+
