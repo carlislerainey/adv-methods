@@ -10,8 +10,11 @@
 *.toc
 *.synctex.gz
 *.bib.bak
-*.docx
-output
 *old-files/
-lit-review
+*.key
+*.nav
+*.snm
+*.vrb
+*.pdf
 !.gitignore
+!*/figs
