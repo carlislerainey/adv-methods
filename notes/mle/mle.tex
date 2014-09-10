@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[handout]{beamer}
 
 % math packages
 \usepackage{amssymb}
@@ -59,7 +59,7 @@
 \pause Under which $\theta$ would these data most likely occur?\\\vspace{5mm}
 
 \begin{itemize}
-\pause \item Assumes that the model $y \sim f(y | \theta)$ is correct.
+\pause \item Assumes that the model $Y \sim f(y | \theta)$ is correct.
 \pause \item Optimal asymptotic properties.
 \pause \item Usually reasonable in small samples.
 \pause \item Intuitive appeal and usually easy to implement.
@@ -108,7 +108,7 @@ Step 2: Take the log and reduce.
 \begin{equation*}
 \begin{aligned}
 \pause \mathcal{L}(\pi | y, n) &= \displaystyle{n \choose y}\pi^y(1 - \pi)^{n - y}\\
-\pause &= \log\left[ \displaystyle{n \choose y}\pi^y(1 - \pi)^{n - y} \right]\\
+\pause \log \mathcal{L}(\pi | y, n) &= \log\left[ \displaystyle{n \choose y}\pi^y(1 - \pi)^{n - y} \right]\\
 \pause &= \log\displaystyle{n \choose y} + \log\left[\pi^y \right] + \log \left[ (1 - \pi)^{n - y} \right]\\
 \pause &\propto \log\left[\pi^y \right] + \log \left[ (1 - \pi)^{n - y} \right]\\
 \pause \log\mathcal{L}(\pi | y, n) &\propto y \log\pi+ (n - y) \log(1 - \pi)
@@ -148,10 +148,9 @@ Now we'll set the derivative equal to zero to find the spot where the log-likeli
 \pause \dfrac{y}{\hat{\pi}} - \dfrac{n - y}{1 - \hat{\pi}} &= 0\\
 \pause \dfrac{(1 - \hat{\pi})y}{\hat{\pi}(1 - \hat{\pi})} - \dfrac{\hat{\pi}(n - y)}{\hat{\pi}(1 - \hat{\pi})} &= 0\\
 \pause (1 - \hat{\pi})y - \hat{\pi}(n - y) &= 0\\
-\pause y - \hat{\pi} y - (\hat{\pi} n + \hat{\pi} y) &= 0\\
-\pause y - \hat{\pi} y - \hat{\pi} n - \hat{\pi} y &= 0\\
-\pause y - \hat{\pi}(y - n + y) &= 0\\
-\pause y - \hat{\pi} n &= 0\\
+\pause y - \hat{\pi} y - (\hat{\pi} n - \hat{\pi} y) &= 0\\
+\pause y - \hat{\pi} y - \hat{\pi} n + \hat{\pi} y &= 0\\
+\pause y - \hat{\pi}n &= 0\\
 \pause y &= \hat{\pi} n \\
 \pause \dfrac{y}{n} &= \hat{\pi}
 \end{aligned}
@@ -201,7 +200,7 @@ ll.fn.dist <- function(theta, y) {
 \end{blockcode}
 \pause \item Use \texttt{optim()} to find the maximum of the function.
 \pause \begin{blockcode}
-est <- optim(par = c(...), fn = ln.fn.dist, ...,
+est <- optim(par = c(...), fn = ll.fn.dist, ...,
                     control = list(fnscale = -1))
 \end{blockcode}
 \end{enumerate}
