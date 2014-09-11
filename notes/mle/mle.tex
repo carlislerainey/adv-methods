@@ -73,10 +73,12 @@ Once we know (or assume) the probability model $Y \sim f(y | \theta)$, deriving 
 \pause General Process of Maximum Likelihood Estimation
 \begin{enumerate}
 \pause \item Calculate the probability of the data given the parameters. This is the ``likelihood function,'' which we might write this as $p(y | \theta)$ or $\mathcal{L}(\theta | y)$. We typically use $\mathcal{L}(\theta | y)$ since we're going to maximize across $\theta$, but the two are equal.
-\pause \item Take the log and remove as many powers and products as possible. This gives us the ``log-likelihood function,'' which  write as $\log\mathcal{L}(\theta | y)$. In addition to logging, we can apply any monotonic \textit{increasing} function we like to $\mathcal{L}$ (i.e., drop constants). We apply these transformation because it make the maximization easier but preserves the maximum.
+\pause \item Take the log and remove as many powers and products as possible. This gives us the ``log-likelihood function,'' which  write as $\log\mathcal{L}(\theta | y)$. In addition to logging, we can apply any monotonic \textit{increasing} function we like to $\mathcal{L}$ (i.e., drop constants). We apply these transformations because it make the maximization easier but preserves the maximum. (Note: The next set of notes talk about getting standard errors. When we want to do this, we'll need to be a little careful about what we do to $\mathcal{L}$.)
 \pause \item Use calculus to find the maximum of the log-likelihood function. $\underset{\theta}{\arg\max \mathcal{L}(y | \theta)}$. Sometimes this will be difficult or impossible and we'll use a hill-climbing algorithm (i.e., numerical optimization).
 \end{enumerate}
 }}
+
+
 
 \frame{ 
 \headone
@@ -329,6 +331,10 @@ Step 2: Take the log and reduce.
 \end{aligned}
 \end{equation*}
 \end{scriptsize}
+}
+
+\frame{
+\textbf{Note:} Right now, we're only concerned about maximization. If we care about getting standard errors from the log-likelihood, then we cannot drop multiplicative constants like I did on the last slide (e.g., $-\sum_{i = 1}^n \frac{(y_i - \mu)^2}{2} \rightarrow -\sum_{i = 1}^n (y_i - \mu)^2$.) However, we only care about the maximum for now, so drop away.
 }
 
 \frame{
