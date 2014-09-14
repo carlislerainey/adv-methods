@@ -45,8 +45,8 @@ Here's a hint.
 
 Skim the front-end of the papers below and read the methods and analysis sections carefully. Just try to get a sense of how logistic regression is used in practice.
 	
-* James D. Fearon and David D. Laitin. 2003. "Ethnicity, Insurgency, and Civil War." *American Political Science Review* 97(1):75–90.
-* Robert Huckfeldt and John Sprague. 1992. "Political Parties and Electoral Mobilization:Political Structure, Social Structure, and the Party Canvass." *AmericanPolitical Science Review* 86(1):70-86.
+* James D. Fearon and David D. Laitin. 2003. "[Ethnicity, Insurgency, and Civil War](http://www.carlislerainey.com/am-files/papers/FearonLaitin2003.pdf)." *American Political Science Review* 97(1):75–90.
+* Robert Huckfeldt and John Sprague. 1992. "[Political Parties and Electoral Mobilization: Political Structure, Social Structure, and the Party Canvass](http://www.carlislerainey.com/am-files/papers/HuckfeldtSprague1992.pdf)." *American Political Science Review* 86(1):70-86.
 
 ## Replications
 
