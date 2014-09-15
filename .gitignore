@@ -18,6 +18,7 @@
 *.vrb
 *.html
 !.gitignore
+readings
 
 *.pdf
 !**/figs/*.pdf
