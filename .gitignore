@@ -19,6 +19,7 @@
 *.html
 !.gitignore
 readings
+grades*
 
 *.pdf
 !**/figs/*.pdf
