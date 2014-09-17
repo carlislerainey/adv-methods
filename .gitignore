@@ -19,7 +19,7 @@
 *.html
 !.gitignore
 readings
-grades*
+grading*
 
 *.pdf
 !**/figs/*.pdf
