@@ -269,11 +269,89 @@ var(\hat{\theta})= cov(\hat{\theta}) &\approx \left. \left[
 \end{small}
 \pause \textbf{Facts:}
 \begin{enumerate}
-\pause \item $\mathcal{I}(\hat{\theta})$ is called the [observed] Fisher information [matrix] [at the mld].
+\pause \item $\mathcal{I}(\hat{\theta})$ is called the [observed] Fisher information [matrix] [at the mle].
 \pause \item  $-\mathcal{I}(\hat{\theta}) = \mathcal{H}(\hat{\theta})$ is called the Hessian [matrix].
 \pause \item $\sqrt{\text{diag}\left\{\mathcal{I}(\hat{\theta})^{-1}\right\}}$ provides the standard errors of $\hat{\theta}$.
 \end{enumerate}
 }
+
+\frame{
+\headone
+What does this mean?
+}
+
+\begin{frame}[fragile]
+Let's just write a little R function to do the optimization numerically.
+\begin{scriptsize}
+\pause \begin{blockcode} 
+# log-likelihood for beta
+ll.fn.beta <- function(theta, y) {
+  alpha <- theta[1]  # optim() requires a single parameter vector
+  beta <- theta[2]
+  ll <- alpha*sum(log(y)) + beta*sum(log(1 - y)) - 
+           length(y)*log(beta(alpha, beta))
+  return(ll)
+}
+\end{blockcode}
+
+\pause \begin{blockcode}
+# function to estimate beta model
+est.beta <- function(y) {
+  # optimize log-likelihood
+  mle <- optim(par = c(1, 1), fn = ll.fn.beta, y = y,
+               control = list(fnscale = -1),
+               hessian = TRUE,
+               method = "Nelder-Mead") # for >1d problems
+  # check convergence
+  if (mle$convergence != 0) print("Model did not converge!")
+  # pull out and calculate important quantities
+  est <- mle$par
+  V <- solve(-mle$hessian)
+  se <- sqrt(diag(V))
+  # put important quantities in list to return
+  res <- list(est = est, V = V, se = se)
+  return(res)
+}
+\end{blockcode}
+\end{scriptsize}
+\end{frame}
+
+\begin{frame}[fragile]
+Now let's try a little fake data simulation. This becomes more important now because it let's us test whether our function is working or not.
+\pause \begin{blockcode}
+# set alpha, beta, and n
+alpha <- 2
+beta <- 2
+n <- 1000
+\end{blockcode}
+
+\pause \begin{blockcode}
+# simulate the data
+set.seed(1234)
+y <- rbeta(n, alpha, beta)
+\end{blockcode}
+
+\pause \begin{blockcode}
+# estimate shape parameters
+m1 <- est.beta(y)
+\end{blockcode}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{blockcode}
+> print(m1, digits = 2)
+$est
+[1] 2.1 2.1
+
+$V
+       [,1]   [,2]
+[1,] 0.0077 0.0063
+[2,] 0.0063 0.0082
+
+$se
+[1] 0.088 0.090
+\end{blockcode}
+\end{frame}
 
 \frame{
 \headone
