@@ -1,0 +1,49 @@
+%
+\documentclass[10pt]{exam2}
+%\printanswers
+
+\usepackage{amsmath}
+
+\begin{document}
+
+%\maketitle
+\begin{center}
+{\LARGE Quiz 3 - MLE, continued}.\\\vspace{2mm}
+\vspace{3mm}
+{\large Advanced Methods}\\\vspace{2mm}
+%Carlisle Rainey\symbolfootnote[1]{Carlisle Rainey is an Assistant Professor of Political Science, University at Buffalo, SUNY, 520 Park Hall, Buffalo, NY 14260 (\href{mailto:rcrainey@buffalo.edu}{rcrainey@buffalo.edu}).}
+\end{center}
+
+\begin{questions}
+
+\question Assume that we have a model $Y_i \sim f(y_i | \Theta)$. Clearly identify the three following steps in maximum likelihood estimation. When possible, do the step using the generic distribution $f$. Note that you will not be able to find an analytical solution for the generic distribution $f$, but discuss how you could find the analytical solution, assuming a specific, tractable $f$.
+\begin{solution}[3in]
+\begin{enumerate}
+\item Write down the probability of the data $y$ given the parameter $\theta$. In the generic case, it's just $\Pr(y | \theta) = \mathcal{L}(\theta | y) = \prod_{i =1}^n f(y_i |\theta)$.
+\item Take the log of the likelihood function $\mathcal{L}$ and remove as many powers and products as possible. This gives $\log \mathcal{L} (\theta | y) = \sum_{i=1}^n \log f(y_i|\theta)$.
+\item Find the value of $\theta$ that maximizes $\mathcal{L}$. We can either use numeric optimization or analytical optimization. To optimize, analytically, simply take the derivative of $\mathcal{L}$ w.r.t. $\theta$, set the derivative equal to zero and $\theta = \hat{\theta}$, and solve for $\hat{\theta}$. No analytical solution exists for the generic distribution.
+\end{enumerate}
+\end{solution}
+
+
+\question Suppose that $Y_i \sim f_{Pois}(y_i | \lambda)$, where $f_{Pois}(y_i | \lambda) = \frac{\lambda^{y_i}}{y!}e^{-\lambda}$. Given the data set $y = [y_1, y_2, ..., y_n]$, find $\hat{\lambda}$, the maximum likelihood estimator of $\lambda$. Clearly label each step in the process and neatly explain what you are doing. (Feel free to drop \emph{additive} constants from $\log \mathcal{L}$.)
+\begin{solution}[4in]
+First, note that the likelihood function is given by $\mathcal{L}(\lambda | y) = \prod_{i = 1}^n \frac{\lambda^{y_i}}{y!}e^{-\lambda}$. Then the log-likelihood function is given by $\log \mathcal{L}(\lambda | y) = \sum_{i = 1}^n \log \left[\frac{\lambda^{y_i}}{y!}e^{-\lambda}\right]$, we can simplify this.
+\begin{equation*}
+\begin{aligned}
+\log \mathcal{L}(\lambda | y) = \sum_{i = 1}^n \log \left[\frac{\lambda^{y_i}}{y!}e^{-\lambda}\right]\\
+\log \mathcal{L}(\lambda | y) = \sum_{i = 1}^n [ \log y_i \lambda + \log e^{-\lambda} - \overbrace{\log y!}^{\text{constant}}] \\
+\log \mathcal{L}(\lambda | y) = \sum_{i = 1}^n [\log y_i \lambda - \lambda]\\
+\log \mathcal{L}(\lambda | y) = \sum_{i = 1}^n \log y_i \lambda - n \lambda
+\end{aligned}
+\end{equation*}
+Now that we have the simplified log-likelihood function, we need to find the derivative, which is given by $\frac{\partial \mathcal{L}}{\partial \lambda} = \frac{\sum_{i = 1}^n y_i}{\lambda} -n$. Setting the derivative equal zero and $\lambda = \hat{\lambda}$, we have $\frac{\sum_{i = 1}^n y_i}{\hat{\lambda}} -n = 0$, which implies that $\hat{\lambda} = \frac{\sum_{i = 1}^n y_i}{n}$.
+\end{solution}
+
+\end{questions}
+\end{document}
+
+
+
+
+
