@@ -32,9 +32,9 @@ The reading below (5.1) reviews what we did in class, (5.2) previews King, Tomz,
 ## Application
 
 1. Read [Krupnikov (2011)](http://www.carlislerainey.com/am-files/papers/Krupnikov2011.pdf) to get a sense of her argument.
-2. Use the `glm()` function to replicate her Table 2 using [her data](http://carlislerainey.com/am-files/data/krupnikov.csv). You can right-click the link and "Save As..." or you can load the data directly from my servers. I think the variable names in the data match the paper fairly well. (Use `names(data)` to see the variable names after loading the data into R.)
+2. Use the `glm()` function to replicate Model 3 in her Table 4 using [her data](http://carlislerainey.com/am-files/data/krupnikov.csv). You can right-click the link and "Save As..." or you can load the data directly from my servers. I think the variable names in the data match the paper fairly well. (Use `names(data)` to see the variable names after loading the data into R.)
 3. Use the `screenreg()` function in the `texreg` package to print the results. Note that you can also use the package to output nice tables from R to LaTeX and Word.
-4. Notice that Krupnikov uses a lot of control variables. Check the robustness of her results to the exclusion of subset's of these controls. You can choose what to exclude. Discuss your findings and their implications. (Note that, for now, we are just interpreting the sign and significance of the logit coefficients).
+4. Notice that Krupnikov uses a lot of control variables. Check the robustness of her results to the exclusion of subsets of these controls. You can choose what to exclude. Discuss your findings and their implications. (Note that, for now, we are just interpreting the sign and significance of the logit coefficients).
 5. Just for kicks, replicate her results with a probit model as well (use `family = binomial(link=probit)`). Notice that the logit coefficients are approximately 1.6 ($\pi^2/3$) times larger than the probit coefficients.
 
 ## Replications
@@ -63,4 +63,5 @@ Write a short (i.e., 1-2 pages, double-spaced) summary of the debate, why you th
 
 * Calculate the marginal effect of a logit/probit model.
 * Derive a maximum likelihood estimator for a logit/probit model.
+* Describe the process that King, Tomz, and Wittenberg suggest using to obtain standard errors around quantities of interest. 
 * Summarize what you feel is the key disagreement among the authors in the product term/logit model debate.
