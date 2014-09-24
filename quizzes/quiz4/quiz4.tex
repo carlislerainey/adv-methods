@@ -1,0 +1,43 @@
+%
+\documentclass[10pt]{exam2}
+%\printanswers
+
+\usepackage{amsmath}
+
+\begin{document}
+
+%\maketitle
+\begin{center}
+{\LARGE Quiz 4 - Logistic Regression}\\\vspace{2mm}
+\vspace{3mm}
+{\large 15 minutes}\\\vspace{2mm}
+%Carlisle Rainey\symbolfootnote[1]{Carlisle Rainey is an Assistant Professor of Political Science, University at Buffalo, SUNY, 520 Park Hall, Buffalo, NY 14260 (\href{mailto:rcrainey@buffalo.edu}{rcrainey@buffalo.edu}).}
+\end{center}
+
+\begin{questions}
+
+\question Derive an estimator for the logit model, starting with $Pr(y_i) = \dfrac{1}{1 + e^{-X_i\beta}}$.
+\begin{solution}[3.5in]
+See notes on binary outcomes.
+\end{solution}
+
+
+\question For the model above, calculate $\dfrac{\partial Pr(y_i)}{\partial x_1}$.
+\begin{solution}
+Note that we start with $Pr(y_i) = \left[1 + e^{-(\beta_0 + \beta_1x_1 + ... + \beta_kx_k)}\right]^{-1}$. Use the chain rule to find that $\dfrac{\partial Pr(y_i)}{\partial x_1} = (-1)\left[1 + e^{-(\beta_0 + \beta_1x_1 + ... + \beta_kx_k)}\right]^{-2}\left[-\beta_1 e^{-(\beta_0 + \beta_1x_1 + ... + \beta_kx_k)}\right]$. Simplifying this a little, you get 
+$\dfrac{\partial Pr(y_i)}{\partial x_1} = \beta_1
+\dfrac
+{
+e^{-(\beta_0 + \beta_1x_1 + ... + \beta_kx_k)}
+}
+{
+\left[1 + e^{-(\beta_0 + \beta_1x_1 + ... + \beta_kx_k)}\right]^{2}
+}$. Manipulate it a little more, let $p_i = \dfrac{1}{1 + e^{-(\beta_0 + \beta_1x_1 + ... + \beta_kx_k)}}$, and you'll see that $\dfrac{\partial Pr(y_i)}{\partial x_1} = \beta_1p_i(1 - p_i)$
+\end{solution} 
+\end{questions}
+\end{document}
+
+
+
+
+
