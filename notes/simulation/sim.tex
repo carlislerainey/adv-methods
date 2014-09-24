@@ -1,0 +1,281 @@
+\documentclass[handout]{beamer}
+
+% math packages
+\usepackage{amssymb}
+
+% theme
+\usetheme{Rochester}
+\usecolortheme{dove}
+\usefonttheme{default}
+
+% make the title BIG
+\setbeamerfont{title}{series=\bfseries,size=\Huge, parent=structure}
+
+% remove the side title header
+\setbeamertemplate{headline}{}
+
+%gets rid of bottom navigation bars
+\setbeamertemplate{footline}{}
+
+%gets rid of navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% define "head" commands for transitions
+\newcommand{\headone}{\centering \bf \Huge}
+\newcommand{\headtwo}{\centering \bf \LARGE}
+\newcommand{\headthree}{\centering \bf \Large}
+
+% define a "spaceit" command for spacing between paragraphs
+\newcommand{\spaceit}{\vspace{10mm}}
+
+% define a "red" command to make text red.
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+
+
+% simply the style of the lists
+\setbeamertemplate{itemize items}[default]
+\setbeamertemplate{enumerate items}[default]
+
+% increase the default spacing between equations
+\setlength{\jot}{5pt}
+
+% custom color for "blockcode"
+\usepackage{fancyvrb,color}
+
+\DefineVerbatimEnvironment{blockcode}
+  {Verbatim}
+  {formatcom=\color{blue}}
+
+
+\begin{document}
+\title{Simulation}
+\subtitle{``Clarify-like'' or ``informal Bayesian''}
+\author{Carlisle Rainey} 
+\date{} % remove date 
+
+\frame{\titlepage} 
+
+\frame{
+\textbf{We know how to get our point estimates and standard errors.} \\\vspace{5mm}
+
+\begin{enumerate}
+\item Write down a probability model.
+\item Find the probability of the data given the parameters--the likelihood function.
+\item Take the log and simplify.
+\item Maximize to find the MLE.
+	\begin{itemize}
+	\item Analytically. (Usually difficult or impossible.)
+	\item Numerically. (Usually easier.)
+	\end{itemize}
+\item Take the inverse of the negative Hessian at the MLE to find the covariance matrix.
+\item Take the square root of the diagonal of the covariance matrix to find the standard errors.
+\end{enumerate}
+}
+
+\frame{
+\textbf{We know how to get our point estimate of our quantity of interest.} \\\vspace{5mm}
+
+Use the invariance principle--the MLE of $q(\beta, X_1, X_2,....) = q(\hat{\beta}, X_1, X_2,....)$--but we \underline{also} want a confidence interval around that quantity.
+}
+
+\frame{
+\headthree How do we get confidence intervals around our point estimates for the quantities of interest? \\\vspace{5mm}
+
+\normalsize
+
+We are going to adopt an informal Bayesian approach.
+\begin{enumerate}
+\item conceptually easier
+\item maintain the frequentist interpretation
+\end{enumerate}
+
+}
+
+\frame{
+Start with Bayes' rule:
+\begin{equation*}
+\overbrace{p(\beta | y)}^{\text{posterior}} = \dfrac{\overbrace{p(y | \beta)}^{\text{likelihood}}\overbrace{p(\beta)}^{\text{prior}}}{\underbrace{\int p(y | \beta)p(\beta)d\beta}_{\text{normalizing constant}}}.
+\end{equation*}
+
+Now choose an improper, flat prior, so that $p(\beta) = c$. In this case, the approximate posterior is given by:
+\begin{equation*}
+p(\beta | y) \approx N (\hat{\theta}^{mle}, \hat{\Sigma}^{mle}).
+ \end{equation*}
+}
+
+\frame{
+Exercise: Suppose $X \sim N(0, 1)$. Then $E(X) = 0$. What is $E\left(e^X\right)$?
+}
+
+\frame{
+\textbf{Using simulation to learn about the ``posterior'' distribution of quantities of interest $q(\beta, X_1, X_2,...)$.}
+\begin{enumerate}
+\item Estimate the model to obtain $\hat{\beta}$ and $\hat{\Sigma}$.
+\item Choose the row vectors $X_1$, $X_2$,...
+\item Do the following $n_{sims} \geq 1000$ times:
+	\begin{enumerate}
+	\item Simulate a parameter vector $\tilde{\beta} \sim N(\hat{\beta}, \hat{\Sigma})$.
+	\item Calculate $\tilde{q}_i = q(\beta, X_1, X_2,...)$.
+	\end{enumerate}
+\item Characterize the distribution of $\tilde{q}$.
+	\begin{enumerate}
+	\item mean, median, mode
+	\item standard deviation
+	\item quantiles ([5th, 95th] $\rightarrow$ 90\% CI; [2.5th, 97.5th] $\rightarrow$ 95\% CI)
+	\end{enumerate}
+\end{enumerate}
+}
+
+\begin{frame}[fragile]
+\begin{footnotesize}
+\begin{blockcode}
+> # load libraries
+> library(arm)
+> 
+> # read data
+> d <- read.csv("http://crain.co/am-files/data/turnout-small.csv")
+> 
+> # estimate simple logit model
+> m <- glm(vote ~ educate + age + income, 
++          family = binomial, data = d)
+> 
+> # display results
+> display(m, detail = TRUE)
+glm(formula = vote ~ educate + age + income, family = binomial, 
+    data = d)
+            coef.est coef.se z value Pr(>|z|)
+(Intercept) -2.92     0.32   -9.16    0.00   
+educate      0.18     0.02    8.89    0.00   
+age          0.03     0.00    8.44    0.00   
+income       0.18     0.03    6.76    0.00   
+---
+  n = 2000, k = 4
+  residual deviance = 2026.9, null deviance = 2266.7 (difference = 239.9)
+\end{blockcode}
+\end{footnotesize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{footnotesize}
+\begin{blockcode}
+# set the medians
+x.edu <- median(d$educate)  # in years
+x.age <- median(d$age)  # in years
+x.inc <- median(d$income)  # in 10,000s of dollars
+
+# set beta.hat, Sigma.hat, and X.c
+beta.hat <- coef(m)
+Sigma.hat <- vcov(m)
+X.c <- c(1, x.edu, x.age, x.inc)
+
+# simulate p.tilde
+library(MASS)  # mvrnorm()
+n.sims <- 1000  # set number of simulations
+p.tilde <- numeric(n.sims)  # create holder for simulations
+for (i in 1:n.sims) {
+  beta.tilde <- mvrnorm(1, beta.hat, Sigma.hat)
+  p.tilde[i] <- plogis(X.c%*%beta.tilde) 
+}
+
+# characterize the simulations
+mean(p.tilde)
+sd(p.tilde)
+quantile(p.tilde, c(0.05, 0.95))
+\end{blockcode}
+\end{footnotesize}
+\end{frame}
+
+\frame{
+\textbf{Thoughts on Loops}\\\vspace{5mm}
+Loops are \underline{slow} relative to matrix calculations, however...
+\begin{enumerate}
+\item Loops are easier to understand.
+\item Loops are easier to get right.
+\item The times are not practically important in most situations.
+\end{enumerate}
+}
+
+\begin{frame}[fragile]
+\begin{footnotesize}
+\begin{blockcode}
+> # time comparison
+> loop.time <- system.time(
++   for (i in 1:1000) {
++     beta.tilde <- mvrnorm(1, beta.hat, Sigma.hat)
++     p.tilde[i] <- plogis(X.c%*%beta.tilde) 
++   }
++ ); loop.time
+   user  system elapsed 
+  0.183   0.001   0.183 
+> 
+> vectorized.time <- system.time(
++   X.c%*%t(mvrnorm(1000, beta.hat, Sigma.hat))
++ ); vectorized.time
+   user  system elapsed 
+  0.000   0.000   0.001 
+> 
+> loop.time[3]/vectorized.time[3]
+elapsed 
+    183 
+\end{blockcode}
+\end{footnotesize}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+I encourage you to use loops liberally, at least at first. However, sample the $\tilde{\beta}$ outside the loop (unlike what I did above).\\\vspace{5mm}
+\begin{blockcode}
+# simulate p.tilde
+library(MASS)  # mvrnorm()
+n.sims <- 1000  # set number of simulations
+p.tilde <- numeric(n.sims)  # create holder for simulations
+beta.tilde <- mvrnorm(n.sims, beta.hat, Sigma.hat)
+for (i in 1:n.sims) {
+  p.tilde[i] <- plogis(X.c%*%beta.tilde[i, ]) 
+}
+\end{blockcode}
+\end{frame}
+
+\frame{
+\headone
+Second-Difference
+}
+
+\begin{frame}[fragile]
+\begin{scriptsize}
+\begin{blockcode}
+# set the x's
+x.edu.lo <- 12  # in years
+x.edu.hi <- 16  # in years
+x.age.lo <- 25  # in years
+x.age.hi <- 75  # in years
+x.inc <- median(d$income)  # in 10,000s of dollars
+
+# set beta.hat, Sigma.hat, X.hi.hi, X.lo.hi, X.hi.lo, and X.lo.lo
+beta.hat <- coef(m)
+Sigma.hat <- vcov(m)
+X.hi.hi <- c(1, x.edu.hi, x.age.hi, x.inc)
+X.lo.hi <- c(1, x.edu.lo, x.age.hi, x.inc)
+X.hi.lo <- c(1, x.edu.hi, x.age.lo, x.inc)
+X.lo.lo <- c(1, x.edu.lo, x.age.lo, x.inc)
+
+# simulate
+n.sims <- 1000  # set the number of simulations
+beta.tilde <- mvrnorm(n.sims, beta.hat, Sigma.hat)  # simulate the betas
+sd.tilde <- numeric(n.sims)  # holder
+for (i in 1:n.sims) {
+  p.hi.hi <- plogis(X.hi.hi%*%beta.tilde[i, ]) 
+  p.lo.hi <- plogis(X.lo.hi%*%beta.tilde[i, ]) 
+  p.hi.lo <- plogis(X.hi.lo%*%beta.tilde[i, ]) 
+  p.lo.lo <- plogis(X.lo.lo%*%beta.tilde[i, ]) 
+  sd.tilde[i] <- (p.hi.hi - p.lo.hi) - (p.hi.lo - p.lo.lo) 
+}
+\end{blockcode}
+\end{scriptsize}
+\end{frame}
+
+
+
+\end{document}
