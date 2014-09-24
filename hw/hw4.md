@@ -11,7 +11,8 @@ The reading below (5.1) reviews what we did in class, (5.2) previews King, Tomz,
 
 ## Theory
 
-1. Calculate the marginal effect of $x_1$ in the linear regression model $E(y) = \beta_0 + \beta_1 x_1 + \beta_2 x_2$. $x_1$ in the logistic regression model $Pr(y) = \Lambda(\beta_0 + \beta_1 x_1 + \beta_2 x_2$. 
+1. Calculate the marginal effect of $x_1$ in the linear regression model $E(y) = \beta_0 + \beta_1 x_1 + \beta_2 x_2$.
+2. Calculate the marginal effect of $x_1$ in the logistic regression model $Pr(y) = \Lambda(\beta_0 + \beta_1 x_1 + \beta_2 x_2)$. 
 2. Discuss the way in which these marginal effects depend on $x_1$ itself and also $x_2$.
 
 ## Computation
