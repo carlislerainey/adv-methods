@@ -1,0 +1,159 @@
+\documentclass[handout]{beamer}
+
+% math packages
+\usepackage{amssymb}
+
+% theme
+\usetheme{Rochester}
+\usecolortheme{dove}
+\usefonttheme{default}
+
+% make the title BIG
+\setbeamerfont{title}{series=\bfseries,size=\Huge, parent=structure}
+
+% remove the side title header
+\setbeamertemplate{headline}{}
+
+%gets rid of bottom navigation bars
+\setbeamertemplate{footline}{}
+
+%gets rid of navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% define "head" commands for transitions
+\newcommand{\headone}{\centering \bf \Huge}
+\newcommand{\headtwo}{\centering \bf \LARGE}
+\newcommand{\headthree}{\centering \bf \Large}
+
+% define a "spaceit" command for spacing between paragraphs
+\newcommand{\spaceit}{\vspace{10mm}}
+
+% define a "red" command to make text red.
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+
+
+% simply the style of the lists
+\setbeamertemplate{itemize items}[default]
+\setbeamertemplate{enumerate items}[default]
+
+% increase the default spacing between equations
+\setlength{\jot}{5pt}
+
+% custom color for "blockcode"
+\usepackage{fancyvrb,color}
+
+\DefineVerbatimEnvironment{blockcode}
+  {Verbatim}
+  {formatcom=\color{blue}}
+
+
+\begin{document}
+\title{Modeling Count Outcomes}   
+\author{Carlisle Rainey} 
+\date{} % remove date 
+
+\frame{\titlepage} 
+
+\frame{
+\textbf{Binary Outcomes}\\\vspace{5mm}
+Count outcomes are simply counts of events, such as the number of wars, the number of government formation attempts, the number of war casualties, etc.\\\vspace{5mm}
+Event counts are discrete and non-negative.
+}
+
+\frame{
+To model event counts, our distribution function $f$ must specify...
+\begin{itemize}
+\item $Pr(Y_i = 0)$
+\item $Pr(Y_i = 1)$
+\item $Pr(Y_i = 2)$
+\item $Pr(Y_i = 3)$
+\item all the way to $\infty$.
+\end{itemize}
+As you might imagine, there are lots of distributions we could use here. (As opposed to the binary case, in which assigning one probability assigned them all, since they need to sum to one.)
+}
+
+\frame{
+We need a distribution with support over the non-negative natural numbers (including zero).\\\vspace{3mm} One choice is the Poisson distribution $f_{Pois}(y_i | \lambda_i) = \dfrac{e^{-\lambda_i}\lambda_i^{y_i}}{y_i!}$.
+}
+
+\frame{
+Question: What is the mean of the Poisson distribution? Variance?
+}
+
+\frame{
+Exercise: Derive the log-likelihood for the Poisson model.
+}
+
+\frame{
+\textbf{Quantities of Interest for Count Models}\\\vspace{3mm}
+\begin{enumerate}
+\item Predicted probability (of a particular count $y^*$). $\Pr(Y_i = y^*) = \dfrac{e^{-\lambda_i}\lambda_i^{y^*}}{y^*!}$, where $\lambda_i = e^{X_i\beta}$.
+\item Expected count. $E(Y_i) = e^{X_i\beta}$.
+\item Incident rate ratios.  $IRR = \dfrac{E(Y_{hi})}{E(Y_{lo})} = \dfrac{e^{X_{hi}\beta}}{e^{X_{lo}\beta}}$.
+\end{enumerate}
+}
+
+
+\begin{frame}[fragile]
+\textbf{Estimating Poisson Model in R}\\\vspace{3mm}
+\begin{footnotesize}
+\begin{verbatim}
+# read data
+d <- read.csv("http://crain.co/am-files/data/hks.tab", sep = "\t")
+
+# estimate poisson model
+m1 <- glm(osvAll ~ troopLag + policeLag + militaryobserversLag + 
+              brv_AllLag + osvAllLagDum + incomp + epduration + 
+              lntpop, 
+            data = d, family = "poisson", x = TRUE)
+\end{verbatim}
+\end{footnotesize}
+\end{frame}
+
+\frame{
+We can use ``predictive simulation'' to assess the fit of out model in an absolute sense.
+\begin{enumerate}
+\item Estimate the model coefficient $\hat{\beta}$.
+\item Calculate the parameters for each observation $\hat{\lambda}_i$.
+\item Simulate a ``new'' outcome variable $\tilde{y}_i \sim Pois(\lambda_i)$.
+\item Compare the actual outcome variable $y$ to the simulated outcome variable $\tilde{y}$.
+\end{enumerate}
+}
+
+
+\frame{
+See how this works with the gist \texttt{count-outcomes.R} at \texttt{https://gist.github.com/carlislerainey}.
+}
+
+\frame{
+Recall that the Poisson distribution links the mean and the variance, so that $E(Y) = Var(Y) - \lambda$ if $Y \sim Poisson(\lambda)$. We might want to relax that assumption.\\\vspace{5mm} The negative binomial distribution allows us to do that.\\\vspace{3mm}
+
+$f_{negbin}(y_i | \lambda_i, \alpha) = \left[\dfrac{\Gamma(y_i + \alpha^{-1})}{y_i!\Gamma(\alpha_{-1})}\right] \left[ \dfrac{\alpha^{-1}}{\alpha^{-1} + \lambda_i}\right]^{\alpha^{-1}} \left[ \dfrac{\lambda_i}{\alpha^{-1} + \lambda_i}\right]^{y_i}$, for $\alpha$, $\lambda_i > 0$. \\\vspace{5mm}
+
+If $Y_i \sim NegBin(\lambda_i, \alpha)$, then $E(Y) = \lambda_i$ and $Var(Y) = \lambda_i(1 + \alpha\lambda_i)$
+}
+
+\begin{frame}[fragile]
+\textbf{Estimating Poisson Model in R}\\\vspace{3mm}
+\begin{footnotesize}
+\begin{verbatim}
+m2 <- glm.nb(osvAll ~ troopLag + policeLag + militaryobserversLag + 
+              brv_AllLag + osvAllLagDum + incomp + epduration + 
+              lntpop, 
+            data = d, init.theta = 5, 
+            control = glm.control(epsilon = 1e-12, 
+                                  maxit = 2500, 
+                                  trace = FALSE))
+\end{verbatim}
+\end{footnotesize}
+\end{frame}
+
+\frame{
+See how this works with the gist \texttt{count-outcomes.R} at \texttt{https://gist.github.com/carlislerainey}.
+}
+
+
+\end{document}
+
+\end{document}
