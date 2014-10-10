@@ -1,0 +1,196 @@
+%
+\documentclass[12pt]{article}
+
+% The usual packages
+\usepackage{fullpage}
+\usepackage{breakcites}
+\usepackage{setspace}
+\usepackage{endnotes}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{rotating}
+\usepackage{dcolumn}
+\usepackage{longtable}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{hyperref}
+%\usepackage[usenames,dvipsnames]{color}
+\usepackage{url}
+\usepackage{natbib}
+\usepackage{framed}
+\usepackage{epigraph}
+\usepackage{lipsum}
+\usepackage[font=small,labelfont=sc]{caption}
+\restylefloat{table}
+\bibpunct{(}{)}{;}{a}{}{,}
+
+% Set paragraph spacing the way I like
+\parskip=0pt
+\parindent=20pt
+
+% Define mathematical results
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{claim}{Claim}
+\newenvironment{proof}[1][Proof]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{example}[1][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{remark}[1][Remark]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+% Set up fonts the way I like
+\usepackage{tgpagella}
+\usepackage[T1]{fontenc}
+\usepackage[bitstream-charter]{mathdesign}
+
+%% Set up lists the way I like
+% Redefine the first level
+\renewcommand{\theenumi}{\arabic{enumi}.}
+\renewcommand{\labelenumi}{\theenumi}
+% Redefine the second level
+\renewcommand{\theenumii}{\alph{enumii}.}
+\renewcommand{\labelenumii}{\theenumii}
+% Redefine the third level
+\renewcommand{\theenumiii}{\roman{enumiii}.}
+\renewcommand{\labelenumiii}{\theenumiii}
+% Redefine the fourth level
+\renewcommand{\theenumiv}{\Alph{enumiv}.}
+\renewcommand{\labelenumiv}{\theenumiv}
+% Eliminate spacing around lists
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Create footnote command so that my name
+% has an asterisk rather than a one.
+\long\def\symbolfootnote[#1]#2{\begingroup%
+\def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}
+
+% Create the colors I want
+\usepackage{color}
+\definecolor{darkred}{RGB}{100,0,0}
+
+% enable comments in pdf
+\newcommand{\kelly}[1]{\textcolor{blue}{#1}}
+\newcommand{\carlisle}[1]{\textcolor{magenta}{#1}}
+
+
+\begin{document}
+
+\begin{center}
+{\LARGE Workshop on Modeling Binary Outcomes}\\\vspace{2mm}
+Carlisle Rainey\symbolfootnote[3]{Carlisle Rainey is Assistant Professor of Political Science, University at Buffalo, SUNY, 520 Park Hall, Buffalo, NY 14260 (\href{mailto:rcrainey@buffalo.edu}{rcrainey@buffalo.edu}).}
+\end{center}
+\vspace{2mm}
+
+Statistical modeling requires combining substantive knowledge with theoretical (of the statistical sort) and computation work. You should be getting better at mixing these together. I don't want my classes to encourage rote behavior. Instead, I want to encourage creativity. To that end, we're going to work through a full problem in class today.
+
+We have a generic framework for going from a substantive theoretical claims to substantive empirical results.
+\begin{enumerate}
+\item Write down a probability model of the form $y_i \sim f(\theta_i)$, where $\theta = g^{-1}(X_i\beta)$.
+	\begin{enumerate}
+	\item We choose $f$ so that the support of $f$ matches the possible values of the data and so that $f$ approximately captures the distribution of the data given $X_i$. (Because we've worked only with binary outcomes, we haven't seen the latter in action, but we'll get there.)
+	\item We choose $g$ to map $\Theta$ to $\mathbb{R}$ and capture any desired substantive relationships. For example, we can motivate compression in logistic regression from a substantive perspective. However, it is important that our models be able to represent our proposed hypotheses and the plausible alternatives.
+	\end{enumerate}
+\item We use maximum likelihood to estimate the model coefficients and their standard errors.
+	\begin{enumerate}
+	\item Write down the probability of the data given the parameters $p(y | \beta) = L(\beta | y)$.
+	\item Take the log of the likelihood and simplify.
+	\item Find the vector $\hat{\beta}$ that maximizes the $\log L$. This is the MLE.
+	\item Estimate the covariance matrix $\hat{\Sigma}_{\hat{\beta}}$ by taking the inverse of the negative of the Hessian matrix.
+	\end{enumerate}
+\item Choose and motivate a quantity of interest $q$ (a function of the parameters and hypothetical row vectors; e.g., risk-ratio, first-difference, marginal effects, second-differences, differences in marginal effects, etc). Find the MLE of the $q$ and obtain the confidence interval.
+	\begin{enumerate}
+	\item Use the invariance principle to find $\hat{q}$.
+	\item Take $J$ simulations from $q$'s ``posterior'' indirectly by simulating the vector $\tilde{\beta}$ $J$ times from it's ``posterior,'' which is approximately $N(\hat{\beta}, \hat{\Sigma}_{\hat{\beta}})$ and plugging each simulated $\tilde{\beta}_j$ into the function $q$.
+	\item Take the 5th and 95th percentiles of these simulation to obtain a 90\% confidence interval, etc.
+	\end{enumerate}
+\end{enumerate}
+
+\section*{Problem 1}
+
+\subsection*{Write down the probability model.}
+
+\begin{enumerate}
+\item Let's examine the logit function $\Lambda(x) = \frac{1}{1 + e^{-x}}$. What point $x_0$ has the largest marginal effect? 
+\item Suppose that $X_c\beta = x_0$ in the usual logit model. What is the probability of an event?
+\item I'm going to propose a different inverse link function $g^{-1}(x) = 1 - (1 + e^x)^{-\alpha}$. What $x_0$ maximizes this function?
+\item Might there be a substantive reason to choose $g^{-1}$ over $\Lambda$?
+\item Write down a probability model that uses $g^{-1}$.
+\end{enumerate}
+
+\subsection*{Estimate the parameters and standard errors.}
+
+\begin{enumerate}
+\item Derive the log-likelihood for our new model.
+\item Write a function in R that calculates this log-likelihood. It's convenient to write a function for our new $g^{-1}$ as well.
+\item Test it and make sure it works.
+\item Write a function in R that optimizes the log-likelihood and returns the coefficient estimates, their standard errors and the covariance matrix.
+\item Test is and make sure it works.
+\item Try it out on the data below using some reasonable explanatory variables.
+\end{enumerate}
+
+\begin{verbatim}
+# load packageslibrary(foreign)
+
+# load data
+d <- read.dta("http://crain.co/am-files/data/bde.dta")
+
+# drop the -1's (I'm not sure what they mean)
+d <- d[d$newvote != -1, ]
+\end{verbatim}
+
+\subsection*{Calculate the quantities of interest and confidence interval.}
+
+\begin{enumerate}
+\item Choose a quantity of interest. Explain why you chose it.
+\item Use the invariance principle to obtain $\hat{q}$.
+\item Simulate $J \geq 1000$ model coefficients $\hat{\beta}^{[j]}$ for $j \in 1,..., J$ from the ``posterior.''
+\item Plug these coefficients in to obtain $\tilde{q}^{[j]}$ and summarize $\tilde{q}$ as needed.
+\end{enumerate}
+
+\section*{Problem 2}
+
+\subsection*{Write down the probability model.}
+
+\begin{enumerate}
+\item Suppose that we have two unobserved (and possibly unobservable) binary outcomes $z_i^X \sim \text{Bernoulli}(\pi^{[X]}_i)$, where $\pi^{[X]}_i = \text{logit}^{-1}(X_i\beta)$, and $z_i^W \sim \text{Bernoulli}(\pi^{[W]}_i)$, where $\pi^{[w]}_i = \text{logit}^{-1}(W_i\gamma)$. Now suppose that we can observe a binary outcome $y_i$ that equals one if $z_i^{[X]} = 1$ \underline{and} $z_i^{[W]} = 1$ and zero otherwise. We'll suppose that $z_i^{[X]}$ and $z_i^{[W]}$ because that makes things a little easier. Write down the probability $\text{Pr}(y_i = 1)$.
+\end{enumerate}
+
+\subsection*{Estimate the parameters and standard errors.}
+
+\begin{enumerate}
+\item Derive the log-likelihood.
+\item Write a function in R that calculates this log-likelihood. It may be convenient for write a function to calculate $\text{Pr}(y_i = 1)$.
+\item Test it and make sure it works.
+\item Write a function in R that optimizes the log-likelihood and returns the coefficient estimates, their standard errors and the covariance matrix.
+\item Test is and make sure it works.
+\item Try it out on the data below using some reasonable explanatory variables. We might think that the two unobservabilty probabilities are $\Pr(\text{Vote}~|~\text{Register})$ and $\Pr(\text{Register})$. You'll need to choose what variables belong in $X$, $W$, both, or neither.
+\end{enumerate}
+
+\begin{verbatim}
+# load packageslibrary(foreign)
+
+# load data
+d <- read.dta("http://crain.co/am-files/data/bde.dta")
+
+# drop the -1's (I'm not sure what they mean)
+d <- d[d$newvote != -1, ]
+\end{verbatim}
+
+\subsection*{Calculate the quantities of interest and confidence interval.}
+
+\begin{enumerate}
+\item Choose a quantity of interest. Explain why you chose it.
+\item Use the invariance principle to obtain $\hat{q}$.
+\item Simulate $J \geq 1000$ model coefficients $\text{vec}(\tilde{\beta}, \tilde{\gamma})^{[j]}$ for $j \in 1,..., J$ from the ``posterior.''
+\item Plug these coefficients in to obtain $\tilde{q}^{[j]}$ and summarize $\tilde{q}$ as needed.
+\end{enumerate}
+
+
+\end{document}
