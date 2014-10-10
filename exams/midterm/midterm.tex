@@ -1,0 +1,152 @@
+%
+\documentclass[10pt]{exam2}
+%\printanswers
+
+\usepackage{amsmath}
+
+\begin{document}
+
+%\maketitle
+\begin{center}
+{\LARGE Midterm Exam}\\\vspace{2mm}
+\vspace{2mm}
+%Carlisle Rainey\symbolfootnote[1]{Carlisle Rainey is an Assistant Professor of Political Science, University at Buffalo, SUNY, 520 Park Hall, Buffalo, NY 14260 (\href{mailto:rcrainey@buffalo.edu}{rcrainey@buffalo.edu}).}
+\end{center}
+
+\begin{questions}
+\question Suppose that you would like to model a binary outcome $y_i \in \{0, 1\}$ as a function of $k$ covariates combined into a matrix $X$ along with an intercept. Let's model $\Pr(y_i = 1) = g^{-1}(X_i\beta)$, where $\displaystyle g^{-1}(X_i\beta) = e^{-e^{-X_i\beta}}$ (that's ``e'' to the minus ``e'' to the minus ``X'' beta or $exp(-exp(-X_i \beta))$.) In this case, $g^{-1}$ is the cdf of the Gumbel distribution, which has support over the real line. Since the probability of a binary event can only be distributed Bernoulli, we have $Y_i \sim f_{Bern}(y_i | \pi_i)$, where $\pi_i = g^{-1}(X_i\beta)$ and $f_{Bern}(y_i | \pi_i) = \pi_i^{y_i}(1 - \pi_i)^{(1 - y_i)}$.
+
+\begin{parts}
+\part Calculate the marginal effect of $x_1$ on $Pr(y_i)$. Show your work and explain each step clearly.
+\begin{solution}[4in]
+TBA.
+\end{solution}
+\part Write down the probability of a single observation $p(y_i | \pi_i)$. Just write down the answer, no steps needed.
+\begin{solution}
+TBA.
+\end{solution}
+\newpage
+\part Write down the likelihood function $L(y | \pi)$, where $y = \langle y_1, y_2, ..., y_n \rangle$ and $\pi = \langle \pi_1, \pi_2, ..., \pi_n \rangle$. Just write down the answer, no steps needed.
+\begin{solution}[2in]
+TBA.
+\end{solution}
+
+\part Find the simplified version of the log-likelihood function $\log L(y | \beta)$ (i.e., remove powers and products). Show your work as you go from $L(y | \pi)$ to $\log L(y | \beta)$.
+\begin{solution}
+TBA.
+\end{solution}
+
+\newpage
+
+\part Discuss how to find the maximum likelihood estimates $\hat{\beta}^{mle}$ from $\log L(y | \beta)$.
+
+\begin{parts}
+\part Describe in words how to find $\hat{\beta}^{mle}$ (i.e., Find the \underline{~~~~~~~~~~~} that maximizes the \underline{~~~~~~~~~~~}.)
+\begin{solution}[2.5in]
+TBA.
+\end{solution}
+\part Describe how you could find $\hat{\beta}^{mle}$ analytically using if the log-likelihood is tractable.
+\begin{solution}[2.5in]
+TBA.
+\end{solution}
+\part Describe in words how you could find $\hat{\beta}^{mle}$ numerically. Mention the R function that you might use and briefly discuss how it works.
+\begin{solution}
+TBA.
+\end{solution}
+\end{parts}
+\end{parts}
+
+\newpage
+
+\question Now forget that weird link function (which by the way, is sometimes used and is called the ``cloglog''). Let's go back to the logit, where $g^{-1}(X_i \beta) = \dfrac{1}{1 + e^{-X_i\beta}}$. Suppose I use our small version of the ANES data, estimate the logit model, and obtain the following output:
+\begin{verbatim}
+> # load libraries
+> library(arm)
+> 
+> # read data
+> d <- read.csv("http://crain.co/am-files/data/turnout-small.csv")
+> 
+> # estimate simple logit model
+> m <- glm(vote ~ educate + age + income, 
++          family = binomial, data = d)
+> 
+> # display results
+> display(m, detail = TRUE)
+glm(formula = vote ~ educate + age + income, family = binomial, 
+    data = d)
+            coef.est coef.se z value Pr(>|z|)
+(Intercept) -2.92     0.32   -9.16    0.00   
+educate      0.18     0.02    8.89    0.00   
+age          0.03     0.00    8.44    0.00   
+income       0.18     0.03    6.76    0.00   
+---
+  n = 2000, k = 4
+  residual deviance = 2026.9, null deviance = 2266.7 (difference = 239.9)
+\end{verbatim}
+Remember that education is in years, age is in years, and income is in tens of thousands of dollars.
+\begin{parts}
+\part Simply by looking at the table, what can you say about the effect of a one year increase in education on the probability of voting?
+\begin{solution}[2in]
+TBA.
+\end{solution}
+
+\newpage
+
+\part Calculate the probability of voting for a hypothetical individual of your choosing. Show your work clearly. If you need a computer to evaluate something, simply make a note of it, give it a meaningful symbol, and continue.
+\begin{solution}[4in]
+TBA.
+\end{solution}
+\part Calculate the first-difference as education goes from a low value to a high value for a hypothetical individual of your choosing. Show your work clearly. If you need a computer to evaluate something, simply make a note of it, give it a meaningful symbol, and continue.
+\begin{solution}
+TBA.
+\end{solution}
+
+\newpage
+
+\part Calculate the risk-ratio as education goes from a low value to a high value for a hypothetical individual of your choosing. Show your work clearly. If you need a computer to evaluate something, simply make a note of it, give it a meaningful symbol, and continue. Feel free to reference work from the previous question rather than repeating.
+\begin{solution}[2in]
+TBA.
+\end{solution}
+\end{parts}
+\question Describe in detail how to obtain a confidence interval around the first-difference using ``Clarify-like'' or ``informal Bayesian'' simulation.
+
+\newpage
+
+\question Suppose that $Y_i \sim f_{exp} (y_i | \lambda)$, where $f_{exp}(y_i | \lambda) = \lambda e^{-\lambda y_i}$ for $y_i \geq 0$ and $\lambda > 0$.
+\begin{parts}
+\part Find the maximum likelihood estimator for $\lambda$ given $y = \langle y_1, y_2,..., y_n \rangle$.
+\begin{solution}[4in]
+TBA.
+\end{solution}
+\part Find the maximum likelihood estimate for $\lambda$ given $y = \langle 1, 2, 6 \rangle$.
+\begin{solution}[2in]
+TBA.
+\end{solution}
+\end{parts}
+
+\newpage
+
+\question Suppose the pdf $f(x) = 3x^2$ for $0 \leq x \leq 1$.
+\begin{parts}
+\part Show that this is indeed a pdf.
+\begin{solution}[3in]
+TBA.
+\end{solution}
+\part What is the probability of $X > \dfrac{1}{2}$.
+\begin{solution}[2in]
+TBA.
+\end{solution}
+\end{parts} 
+
+
+
+\question  Bonus: This is a hard question. I'm only putting it here to give people who finish early something to think about. It won't be worth much. You probably can just use some intuition to solve it, but only if you really understand the ideas of maximum likelihood. You can also use math, but it's tricky. Suppose that the outcome is uniformly distributed from zero to some unknown upper bound. Formally, $Y_i \sim f_{unif} (y_i | b)$, where $f_{unif}(y_i | \lambda) = 1/b$ for $0 \leq y_i \leq b$. Suppose that $y = \langle 0.3, 4.2, 2.2 \rangle$. What's the maximum likelihood estimate of $b$?
+
+\end{questions}
+
+\end{document}
+
+
+
+
+
